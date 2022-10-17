@@ -1,4 +1,3 @@
-from random import randint
 from game.casting.actor import Actor
 from game.shared.point import Point
 import constants
@@ -6,7 +5,7 @@ import constants
 
 class Cycle(Actor):
     """
-    A long limbless reptile.
+    A cycle with a toxic trailing exhaust cloud!
     
     The responsibility of Cycle is to move itself.
 
@@ -18,6 +17,9 @@ class Cycle(Actor):
         self._cycle_color = color
         self._segments = []
         self._prepare_body()
+    
+    def set_color(self, color):
+        self._cycle_color = color
 
     def get_segments(self):
         return self._segments
@@ -36,7 +38,7 @@ class Cycle(Actor):
     def get_head(self):
         return self._segments[0]
 
-    def grow_tail(self, number_of_segments):
+    def grow_trailing_cloud(self, number_of_segments):
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
@@ -56,16 +58,15 @@ class Cycle(Actor):
     def _prepare_body(self):
         if self._cycle_color == constants.GREEN:
             x = 0
-            y = 150
+            y = int(((constants.MAX_Y // constants.CELL_SIZE) // 4) * constants.CELL_SIZE)
         else:
             x = 0
-            y = 300
+            y = int(((constants.MAX_Y // constants.CELL_SIZE) // 4) * 3 * constants.CELL_SIZE)
 
         for i in range(constants.CYCLE_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y)
             velocity = Point(1 * constants.CELL_SIZE, 0)
             text = "8" if i == 0 else "#"
-            
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)

@@ -5,9 +5,9 @@ from game.shared.point import Point
 
 class ControlActorsAction(Action):
     """
-    An input action that controls the snake.
+    An input action that controls the cycle.
     
-    The responsibility of ControlActorsAction is to get the direction and move the snake's head.
+    The responsibility of ControlActorsAction is to get the direction and move the cycle.
 
     Attributes:
         _keyboard_service (KeyboardService): An instance of KeyboardService.
@@ -72,3 +72,4 @@ class ControlActorsAction(Action):
         cycles = cast.get_actors("cycles")
         if cycle_index != -1:
             cycles[cycle_index].turn_head(self._direction)
+            cycles[cycle_index].grow_trailing_cloud(1)

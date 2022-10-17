@@ -1,9 +1,9 @@
 import constants
 
 from game.casting.cast import Cast
-from game.casting.food import Food
-from game.casting.score import Score
 from game.casting.cycle import Cycle
+from game.casting.message import Message
+from game.casting.segment import Segment
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -22,6 +22,7 @@ def main():
     cast = Cast()
     cast.add_actor("cycles", Cycle(constants.GREEN))
     cast.add_actor("cycles", Cycle(constants.BLUE))
+    cast.add_actor("messages", Message())
    
     # start the game
     keyboard_service = KeyboardService()
