@@ -1,5 +1,6 @@
 from game.casting.actor import Actor
 from game.shared.point import Point
+from game.casting.segment import Segment
 import constants
 
 
@@ -39,13 +40,14 @@ class Cycle(Actor):
         return self._segments[0]
 
     def grow_trailing_cloud(self, number_of_segments):
+        segment = Segment()
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
             offset = velocity.reverse()
             position = tail.get_position().add(offset)
             
-            segment = Actor()
+            # segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text("#")

@@ -10,6 +10,7 @@ class Segment(Actor):
         Inherited from Actor:
             _text (string): contains the message text to be displayed
             _position (Point): The screen coordinates
+            _velocity (Point): The velocity x and y components
     """
 
     def __init__(self):

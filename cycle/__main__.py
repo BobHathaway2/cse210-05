@@ -3,7 +3,6 @@ import constants
 from game.casting.cast import Cast
 from game.casting.cycle import Cycle
 from game.casting.message import Message
-from game.casting.segment import Segment
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -12,8 +11,6 @@ from game.scripting.draw_actors_action import DrawActorsAction
 from game.directing.director import Director
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
-from game.shared.color import Color
-from game.shared.point import Point
 
 
 def main():
